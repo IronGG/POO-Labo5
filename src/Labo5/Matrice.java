@@ -71,8 +71,6 @@ public class Matrice {
     //#endregion
 
     public String toString() {
-
-        System.out.println("The modulus is " + modulo);
         StringBuilder temp = new StringBuilder();
         for (int[] ints : matrice) {
 

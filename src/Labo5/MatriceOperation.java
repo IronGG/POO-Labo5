@@ -6,7 +6,7 @@ public abstract class MatriceOperation {
      * Takes two matrix, and output a new one with the operation implemented in the overload
      * The modules must match for both matrix
      * Will throw a RuntimeException in case modules don't match, or in case of a operation error
-     * @return a new matrix with the resul
+     * @return a new matrix with the result
      */
     public Matrice process(Matrice a, Matrice b) {
         if(a.getModulo() != b.getModulo())
@@ -24,7 +24,7 @@ public abstract class MatriceOperation {
                 int bValue = (b.getHeight() > h && b.getWidth() > w ? b.getMatrice()[h][w] : 0);
 
                 // Apply the operations, and the modulo
-                matrice[h][w] = applyOperation(aValue, bValue) % modulo;
+                matrice[h][w] = Math.floorMod(applyOperation(aValue, bValue), modulo);
             }
         }
 
@@ -33,6 +33,7 @@ public abstract class MatriceOperation {
 
     /**
      * Takes two int, apply an operation to them depending on the overload, then returns the result
+     * Can throw a RuntimeException in case of a math error (ex : divided by 0)
      * Overload Example : `return a + b;`
      */
     protected abstract int applyOperation(int a, int b);
