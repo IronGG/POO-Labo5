@@ -91,4 +91,22 @@ public class Matrice {
     public void printMatrice() {
         System.out.println(matrice);
     }
+
+    //#region getter/setters
+
+    public int getModulo() {
+        return modulo;
+    }
+
+    public int[][] getMatrice() {
+        return matrice;
+    }
+    public int getHeight() {
+        return matrice.length;
+    }
+    public int getWidth() {
+        return matrice[0].length;
+    }
+
+    //#endregion
 }
