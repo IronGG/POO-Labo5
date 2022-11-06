@@ -1,71 +1,53 @@
 package Labo5;
 
-import com.sun.source.tree.ReturnTree;
-import jdk.jshell.EvalException;
-
 public class Matrice {
 
-    /*
-    A lot of modulo repetitions, how to manage that.
+    private int[][] matrice;
+    private int     modulo;
 
-    No line of code should be used twice so
-    The parsing of Matrices can't be double
+    //#region Constructors
 
-    display has to be a certain way
-     */
-    Matrice() {
-        // Random generation to make ?
-
+    public Matrice(int length, int height, int modulo) {
+        // TODO Random generation
     }
-
-    Matrice(int length, int height, int modulo) {
-        // define modulo or whatever to random
-
-        double test = Math.random();
-
-        this.matrice = new int[][]{ {2, 3}, {3, 4}, {5, 6}, {5, 6} };
-    }
-
-    public Matrice(int[][] matrice) {
+    public Matrice(int[][] matrice, int modulo) {
         this.matrice = matrice;
+        this.modulo  = modulo;
+        // TODO Check correct values
+
     }
 
     public Matrice(Matrice matrice) {
         this.matrice = matrice.matrice;
+        this.modulo  = matrice.modulo;
     }
 
+    //#endregion
+
+    //#region Static methods
+
+    public static Matrice operate(Matrice a, MatriceOperation op, Matrice b) {
+        return op.process(a, b);
+    }
+
+    //#endregion
+
     public String toString() {
-        String temp = "";
+        StringBuilder temp = new StringBuilder();
+        for (int[] ints : matrice) {
 
-        //return Integer.toString(matrice[0].length * matrice.length);
-
-        // What if they all elements don't have the same array size ? { {2, 3, <5>}, {3, 4}, {5, 6}, {5, 6} }
-        for (int i = 0; i < matrice.length; ++i) {
-
-            temp += " { ";
-            for (int val : matrice[i]) {
-                temp += val + " ";
+            temp.append(" { ");
+            for (int val : ints) {
+                temp.append(val).append(" ");
             }
 
-            temp += "}";
+            temp.append("}");
 
         }
 
-        return temp;
+        return temp.toString();
     }
-
     public void printMatrice() {
         System.out.println(matrice);
     }
-
-    public int[][] getMatrice() {
-        return matrice;
-    }
-
-    public void setMatrice(int[][] matrice) {
-        this.matrice = matrice;
-    }
-
-    private int[][] matrice;
-    int modulo;
 }
