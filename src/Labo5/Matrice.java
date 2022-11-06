@@ -2,22 +2,20 @@ package Labo5;
 
 public class Matrice {
 
-    private int[][] matrice;
-    private int     modulo;
+    private final int[][] matrice;
+    private final int     modulo;
 
     //#region Constructors
 
     public Matrice(int length, int height, int modulo) {
 
-        int[][] matrice = new int[length][height];
-        // TODO Random generation
+        matrice = new int[length][height];
         for (int i = 0; i < length; ++i) {
             for(int j = 0; j < height; j++) {
                 matrice[i][j] = (int)(Math.random()*modulo);
             }
         }
 
-        this.matrice = matrice;
         this.modulo = modulo;
 
         checkDimensions();
@@ -27,7 +25,6 @@ public class Matrice {
     public Matrice(int[][] matrice, int modulo) {
         this.matrice = matrice;
         this.modulo  = modulo;
-        // TODO Check correct values
         checkDimensions();
         checkModulo();
     }
