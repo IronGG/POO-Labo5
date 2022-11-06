@@ -20,7 +20,7 @@ public class Matrice {
         this.matrice = matrice;
         this.modulo = modulo;
 
-        checkValues();
+        checkDimensions();
         checkModulo();
     }
 
@@ -28,35 +28,34 @@ public class Matrice {
         this.matrice = matrice;
         this.modulo  = modulo;
         // TODO Check correct values
-        checkValues();
+        checkDimensions();
         checkModulo();
     }
 
     public Matrice(Matrice matrice) {
         this.matrice = matrice.matrice;
         this.modulo  = matrice.modulo;
-        checkValues();
         checkModulo();
     }
 
     /**
-     * Throws runtime exception if matrice has an invalid value (less than 1 in size)
+     * Throws runtime exception if matrix has an invalid value (less than 1 in size)
      */
-    public void checkValues() {
+    public void checkDimensions() {
         if (matrice.length == 0 || matrice[0].length == 0) {
             throw new RuntimeException("Invalid matrice size");
         }
     }
 
     /**
-     * Throws runtime exception if matrice has a value higher than modulo
+     * Throws runtime exception if matrix has a value higher than modulo
      */
     public void checkModulo(){
 
         for (int i = 0; i < matrice[0].length; ++i) {
             for (int j = 0; j < matrice.length; ++j)
             {
-                if(matrice[i][j] > modulo - 1) {
+                if(matrice[i][j] > modulo - 1 || matrice[i][j] < 0) {
                     throw new RuntimeException("Invalid value");
                 }
             }
