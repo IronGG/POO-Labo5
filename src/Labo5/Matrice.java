@@ -64,11 +64,16 @@ public class Matrice {
 
     //#region Static methods
 
+    /**
+     * Takes two matrices and a MatriceOperation to apply to them to
+     * @return the resulting matrix
+     */
     public static Matrice operate(Matrice a, MatriceOperation op, Matrice b) {
         return op.process(a, b);
     }
 
     //#endregion
+
     public void printMatrice() {
         // Get the number of digits
         int nbDigits = Integer.toString(modulo).length();
