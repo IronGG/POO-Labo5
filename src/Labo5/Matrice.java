@@ -69,23 +69,17 @@ public class Matrice {
     }
 
     //#endregion
-
-    public String toString() {
-        StringBuilder temp = new StringBuilder();
+    public void printMatrice() {
+        // Get the number of digits
+        int nbDigits = Integer.toString(modulo).length();
         for (int[] ints : matrice) {
 
             for (int val : ints) {
-                temp.append(val).append(" ");
+                System.out.printf("%" + nbDigits + "s ", val);
             }
-
-            temp.append("\n");
+            System.out.println();
 
         }
-
-        return temp.toString();
-    }
-    public void printMatrice() {
-        System.out.println(this);
     }
 
     //#region getter/setters
