@@ -52,10 +52,10 @@ public class Matrice {
      */
     public void checkModulo(){
 
-        for (int i = 0; i < matrice[0].length; ++i) {
-            for (int j = 0; j < matrice.length; ++j)
+        for (int i = 0; i < matrice.length; ++i) {
+            for (int j = 0; j < matrice[0].length; ++j)
             {
-                if(matrice[i][j] > modulo - 1 || matrice[i][j] < 0) {
+                if(matrice[i][j] >= modulo || matrice[i][j] < 0) {
                     throw new RuntimeException("Invalid value");
                 }
             }
@@ -74,22 +74,23 @@ public class Matrice {
     //#endregion
 
     public String toString() {
+
+        System.out.println("The modulus is " + modulo);
         StringBuilder temp = new StringBuilder();
         for (int[] ints : matrice) {
 
-            temp.append(" { ");
             for (int val : ints) {
                 temp.append(val).append(" ");
             }
 
-            temp.append("}");
+            temp.append("\n");
 
         }
 
         return temp.toString();
     }
     public void printMatrice() {
-        System.out.println(matrice);
+        System.out.println(this);
     }
 
     //#region getter/setters
