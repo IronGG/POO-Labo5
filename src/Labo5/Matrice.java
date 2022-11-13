@@ -68,10 +68,9 @@ public class Matrice {
      */
     public void checkModulo(){
 
-        for (int i = 0; i < matrice.length; ++i) {
-            for (int j = 0; j < matrice[0].length; ++j)
-            {
-                if(matrice[i][j] >= modulo || matrice[i][j] < 0) {
+        for (int[] rows : matrice) {
+            for (int values : rows) {
+                if (values >= modulo || values < 0) {
                     throw new RuntimeException("Invalid value");
                 }
             }
